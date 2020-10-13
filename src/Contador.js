@@ -2,8 +2,11 @@ import React from 'react';
 import './App.css';
 
 
-const Contador = (props) => ( <
-    h1 class = "my-title" > {props.horas}: { props.minutos }: { props.segundos } </h1>
+const Contador = (props) => ( 
+    <div className = "contadorFlex">
+        <h1 className = "contador"> {props.horas}: { props.minutos }: { props.segundos } </h1>
+        <h1> {props.centesimos} </h1>
+    </div>
 )
 
 export default Contador

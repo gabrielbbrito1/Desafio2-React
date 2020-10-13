@@ -8,18 +8,21 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state={
+      list: ["0","0","0","0"],
+      centesimos: 0,
       segundos: 0,
       minutos: 0,
       horas: 0,
       stop: false,
       nameStop: "Stop",
-      name: "Relógio", 
+      name: "Cronômetro", 
       parcial: ""
     };
   }
    zerarCronometro() {
+     this.state.centesimos = -1
       this.state.horas = 0
-      this.state.segundos = -1
+      this.state.segundos = 0
       this.state.minutos = 0
       this.state.parcial = ""
    }
@@ -33,7 +36,7 @@ class App extends React.Component {
     */
    
   parcial(){
-    let p = this.state.horas+ ":"+ this.state.minutos+ ":"+ this.state.segundos + "\n\n"
+    let p = this.state.horas+ ":"+ this.state.minutos+ ":"+ this.state.segundos + "." + this.state.centesimos + "\n\n"
     this.state.parcial = this.state.parcial + p
   }
   
@@ -47,18 +50,30 @@ class App extends React.Component {
       this.state.nameStop = "Start"
   }
 
-  incrementar () {
+  incrementarCentesimo(){
     if (this.state.stop === false){
       this.setState(
-         function (state, props) {
-          if (state.segundos >= 59){
-            this.zerar();
-            this.incrementarMinuto(state);
-          }  
-          return({ segundos: state.segundos +1})
-         })
+        function (state,props) {
+          if (state.centesimos > 99){
+            this.zerarCentesimo();
+            this.incrementarSegundo(state);
+          }
+        return{ centesimos: state.centesimos + 1}
+        })
     }
   }
+  
+  incrementarSegundo () {
+    
+      this.setState(
+         function (state, props) {
+          if (state.segundos > 59){
+            this.zerarSegundo();
+            this.incrementarMinuto(state);
+          }  
+          return{ segundos: state.segundos + 0.5} // Segundo sendo chamado 2 vezes //
+         })
+    }
   
   incrementarMinuto (state) {
     this.setState(function (state, props) {
@@ -75,12 +90,18 @@ class App extends React.Component {
       return {horas: state.horas +1}
     })
   };
-  zerar () {
+  zerarCentesimo () {
     this.setState({ 
-      segundos: 0 ,
+      centesimos: 0 ,
     })
   }
-
+  
+  zerarSegundo(){
+    this.setState({
+      segundos: 0
+    })
+  }
+  
   zerarMinuto() {
   this.setState({
     minutos: 0,
@@ -89,21 +110,44 @@ class App extends React.Component {
 
   componentDidMount(){
     this.timer = setInterval(
-      () => this.incrementar(), 1000)
+      () => this.incrementarCentesimo(), 10)
   }
   
+ /* adicionaZero () {
+    for(){
+    if(this.segundos < 10) {
+      for(){
 
+      }
+        
+    } else {
+        
+    }
+}
+}
+*/
   render(){
 
     return (
-      <div>
-        
-        <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} />
-        <LabelRelogio name={this.state.name} />
-        <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />
-        <Botao onClick={() => this.pararTempo()} label={this.state.nameStop} />
-        <Botao onClick={() => this.parcial()} label={"Parcial"} />
-        <LabelRelogio name={this.state.parcial} />
+      <div className= "main">
+        <div>
+          <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} centesimos={this.state.centesimos} />
+        </div>
+
+        <div>
+          <LabelRelogio name={this.state.name} />
+        </div>
+
+        <div className = "button">
+          <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />
+          <Botao onClick={() => this.pararTempo()} label={this.state.nameStop} />
+          <Botao onClick={() => this.parcial()} label={"Parcial"} />
+        </div>
+
+        <div>
+          <LabelRelogio name={this.state.parcial} />
+        </div>
+
       </div>
     );
   }
