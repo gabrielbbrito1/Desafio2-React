@@ -139,7 +139,7 @@ class App extends React.Component {
         </div>
 
         <div className = "button">
-          <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />
+          <Botao className= "buttonBlack" onClick={() => this.zerarCronometro()} label={"Zerar"} />
           <Botao onClick={() => this.pararTempo()} label={this.state.nameStop} />
           <Botao onClick={() => this.parcial()} label={"Parcial"} />
         </div>
