@@ -134,7 +134,7 @@ class App extends React.Component {
           <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} centesimos={this.state.centesimos} />
         </div>
 
-        <div>
+        <div className = "nomeRelogio">
           <LabelRelogio name={this.state.name} />
         </div>
 
