@@ -134,12 +134,12 @@ class App extends React.Component {
           <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} centesimos={this.state.centesimos} />
         </div>
 
-        <div>
+        <div className = "nomeRelogio">
           <LabelRelogio name={this.state.name} />
         </div>
 
         <div className = "button">
-          <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />
+          <Botao className= "buttonBlack" onClick={() => this.zerarCronometro()} label={"Zerar"} />
           <Botao onClick={() => this.pararTempo()} label={this.state.nameStop} />
           <Botao onClick={() => this.parcial()} label={"Parcial"} />
         </div>

@@ -4,21 +4,42 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: lightskyblue
+    background-color: rgb(220,228,230)
 }
 .contadorFlex{
     display: flex;
     flex-direction: row;
     margin: 10px;
+    font-family: Baskerville, Georgia;
+    background-color: rgb(221, 221, 221);
 }
 .contador{
     margin-right: 10px;
+    font-size: 4vw;
 }
 .counterBody{
     background-color: whitesmoke;
-    width: 60vh;
-    height: 10vw;
+    width: 65vh;
+    height: 12vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(243, 243, 243)
 }
+.contadorCent{
+    opacity: 2.0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    
+}
+ /*.buttonBlack{
+    background-color: #C6CCD2;
+     border-color: #AAB3BB;
+}
+.buttonBlack, .buttonBlack:focus, .buttonBlack:active {
+    background-color: #B8BFC7;
+    border-color: #AAB3BB; 
+}
+*/
