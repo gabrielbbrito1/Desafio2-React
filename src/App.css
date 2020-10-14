@@ -9,22 +9,25 @@
 .contadorFlex{
     display: flex;
     flex-direction: row;
-    margin: 10px;
-    font-family: Baskerville, Georgia;
+    font-family:Helvetica, sans-serif;
     background-color: rgb(221, 221, 221);
+    width: 30vw;
+    height: 18vh;
+    justify-content: center;
+    align-items: center;
 }
 .contador{
     margin-right: 10px;
     font-size: 4vw;
 }
 .counterBody{
-    background-color: whitesmoke;
-    width: 65vh;
-    height: 12vw;
+    width: 40vw;
+    height: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(243, 243, 243)
+    background-color: rgb(3, 3, 3);
+    margin-bottom: 30px;
 }
 .contadorCent{
     opacity: 2.0;
@@ -34,12 +37,63 @@
     font-size: 2vw;
     
 }
- /*.buttonBlack{
-    background-color: #C6CCD2;
-     border-color: #AAB3BB;
+.roundButton{
+    background-color: #ff0202;
+    display: flex;
+    margin: 0 10px ;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    height: 90px;
+    width: 90px;
+    padding: 1px;
+    border-radius: 50%;
 }
-.buttonBlack, .buttonBlack:focus, .buttonBlack:active {
-    background-color: #B8BFC7;
-    border-color: #AAB3BB; 
+.roundButton:focus, .roundButton:active {
+    background-color: #ffffff;
+    border-color: none;
+    color: black;
+    outline: none;
+ 
 }
-*/
+.labelName{
+    font-size: 2vw;
+}
+
+@media (max-width: 600px){
+    .roundButton{
+        width: 13vh;
+        height: 13vh;
+        font-size: 13px;
+        text-align: center;
+        justify-content: center;
+        padding: 1px;
+    }
+}
+@media(max-height: 400px){
+    .roundButton{
+        font-size: 8px;
+        width: 13vh;
+        height: 13vh;
+    }
+    .counterBody{
+        width: 50vw;
+        height: 30vh;
+    }
+    .contadorFlex{
+        width: 40vw;
+        height: 25vh;
+    }
+    .contador{
+        margin-right: 10px;
+        font-size: 7vw;
+    }
+    .labelName{
+        font-size: 10px;
+    }
+}
