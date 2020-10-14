@@ -1,12 +1,15 @@
+import { observer } from 'mobx-react';
 import React from 'react';
 import './App.css';
 
 
-const Contador = (props) => ( 
+const Contador = observer((props) =>{
+    
+    return( 
     <div className = "contadorFlex">
-        <h1 className = "contador"> {props.horas}: { props.minutos }: { props.segundos } </h1>
-        <h1> {props.centesimos} </h1>
+        <h1 className = "contador"> {props.horas}: { props.minutos }: { props.segundos } : {props.centesimos}</h1>
+        
     </div>
-)
+)})
 
 export default Contador
