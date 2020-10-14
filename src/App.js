@@ -130,7 +130,7 @@ class App extends React.Component {
 
     return (
       <div className= "main">
-        <div>
+        <div className = "counterBody">
           <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} centesimos={this.state.centesimos} />
         </div>
 

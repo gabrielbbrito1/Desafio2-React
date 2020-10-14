@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: lightskyblue
 }
 .contadorFlex{
     display: flex;
@@ -12,4 +13,12 @@
 }
 .contador{
     margin-right: 10px;
+}
+.counterBody{
+    background-color: whitesmoke;
+    width: 60vh;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
