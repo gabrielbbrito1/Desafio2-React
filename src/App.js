@@ -38,7 +38,7 @@ class App extends React.Component {
    
   parcial(){
     let p = this.state.horas+ ":"+ this.state.minutos+ ":"+ this.state.segundos + "." + this.state.centesimos + "\n\n"
-    this.state.parcial = this.state.parcial + p
+    this.state.parcial = this.state.parcial + p;
   }
   
   pararTempo(){
@@ -112,7 +112,7 @@ class App extends React.Component {
 
   componentDidMount(){
     this.timer = setInterval(
-      () => this.incrementarCentesimo(), 0.1)
+      () => this.incrementarCentesimo(), 10)
   }
   
  /* adicionaZero () {

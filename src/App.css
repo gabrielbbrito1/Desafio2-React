@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(220,228,230)
+    background-color: rgb(220,228,230) 
 }
 .contadorFlex{
     display: flex;
@@ -15,10 +15,11 @@
     height: 18vh;
     justify-content: center;
     align-items: center;
+    border-radius: 200px;
 }
 .contador{
     margin-right: 10px;
-    font-size: 4vw;
+    font-size: 5vw;
 }
 .counterBody{
     width: 40vw;
@@ -28,6 +29,7 @@
     align-items: center;
     background-color: rgb(3, 3, 3);
     margin-bottom: 30px;
+    
 }
 .contadorCent{
     opacity: 2.0;
@@ -54,12 +56,20 @@
     padding: 1px;
     border-radius: 50%;
 }
-.roundButton:focus, .roundButton:active {
-    background-color: #ffffff;
+ .roundButton:active {
+    background-color: #00ff0d;
     border-color: none;
-    color: black;
+    color: rgb(0, 0, 0);
     outline: none;
- 
+ }
+
+ .roundButton:hover{
+    outline: none;
+    background-color: #d10707;
+}
+
+.roundButton:focus{
+    outline: none;
 }
 .labelName{
     font-size: 2vw;
@@ -74,7 +84,22 @@
         justify-content: center;
         padding: 1px;
     }
-}
+        .counterBody{
+            width: 40vw;
+            height: 20vh;
+        }
+        .contadorFlex{
+            width: 30vw;
+            height: 15vh;
+        }
+        .contador{
+            margin-right: 10px;
+            font-size: 5vw;
+        }
+        .labelName{
+            font-size: 13px;
+        }
+    }
 @media(max-height: 400px){
     .roundButton{
         font-size: 8px;
@@ -82,18 +107,18 @@
         height: 13vh;
     }
     .counterBody{
-        width: 50vw;
-        height: 30vh;
+        width: 40vw;
+        height: 20vh;
     }
     .contadorFlex{
-        width: 40vw;
-        height: 25vh;
+        width: 30vw;
+        height: 15vh;
     }
     .contador{
         margin-right: 10px;
-        font-size: 7vw;
+        font-size: 3vw;
     }
     .labelName{
-        font-size: 10px;
+        font-size: 13px;
     }
 }
