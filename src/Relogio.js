@@ -12,6 +12,7 @@ class Relogio extends React.Component {
     this.state = {date: new Date()};
   }
 
+  
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
@@ -31,17 +32,32 @@ class Relogio extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.state.date.toLocaleTimeString()}</h1>
+      <div className= "mainRelogio" >
+        <div className = "relogio">
+          <div className = "nomeRelogio">  
+             <LabelRelogio name="Relógio" />
+          </div>   
+          </div>
+        
+        <div className = "counterBody">
+            <div className = "contadorFlex">
+        <LabelRelogio name={this.state.date.toLocaleTimeString()} />
+        </div>
+        </div>
+
+        <div className = "buttonTag">
+            <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />  
+            <Botao onClick={() => this.parcial()} label={"Parcial"} />
+          </div>
+
       </div>
     );
+
     ReactDOM.render(
       <Relogio />,
       document.getElementById('root')
     );
   }
 }
-
-
 
 export default Relogio;
