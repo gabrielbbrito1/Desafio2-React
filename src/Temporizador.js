@@ -15,7 +15,7 @@ const Temporizador = () => {
   const name= "Temporizador"; 
 
    const zerarCronometro= () =>{
-     setCentesimos(-1);
+     setCentesimos(0);
       setHoras(0);
       setSegundos(0);
       setMinutos(0);
