@@ -4,6 +4,7 @@ import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
 import './App.css';
 import Temporizador from './Temporizador';
+import Relogio from './Relogio';
 
 class App extends React.Component {
   constructor(props){
@@ -134,11 +135,12 @@ class App extends React.Component {
           </div>
 
           <div>
-            <LabelRelogio name={this.state.parcial}  />
+            <LabelRelogio name={this.state.parcial} />
           </div>
         </div>
           <div className = "relogio">
           Aqui parte do relogio do render
+          <Relogio/>
           </div>
 
           <div className = "temporizador">
