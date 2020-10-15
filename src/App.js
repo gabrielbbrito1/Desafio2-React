@@ -3,12 +3,12 @@ import Contador from './Contador'
 import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
 import './App.css';
+import Temporizador from './Temporizador';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      list: ["0","0","0","0"],
       centesimos: 0,
       segundos: 0,
       minutos: 0,
@@ -26,7 +26,7 @@ class App extends React.Component {
       this.state.minutos = 0
       this.state.parcial = ""
    }
-   
+  
   /* relogio(){
     //yarn add moment-timezone
             var moment = require('moment-timezone')
@@ -37,7 +37,7 @@ class App extends React.Component {
    
   parcial(){
     let p = this.state.horas+ ":"+ this.state.minutos+ ":"+ this.state.segundos + "." + this.state.centesimos + "\n\n"
-    this.state.parcial = this.state.parcial + p
+    this.state.parcial = this.state.parcial + p;
   }
   
   pararTempo(){
@@ -81,7 +81,7 @@ class App extends React.Component {
         this.zerarMinuto();
         this.incrementarHoras(state);
       }  
-      return {minutos: state.minutos +1}
+      return {minutos: state.minutos + 0.5}
     })
   };
   
@@ -113,40 +113,37 @@ class App extends React.Component {
       () => this.incrementarCentesimo(), 10)
   }
   
- /* adicionaZero () {
-    for(){
-    if(this.segundos < 10) {
-      for(){
-
-      }
-        
-    } else {
-        
-    }
-}
-}
-*/
   render(){
+    console.log(this.listTime)
 
     return (
       <div className= "main">
-        <div className = "counterBody">
-          <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} centesimos={this.state.centesimos} />
-        </div>
+        <div className = "Cronometro">
+          <div className = "nomeRelogio">
+            <LabelRelogio name={this.state.name} />
+          </div>
 
-        <div className = "nomeRelogio">
-          <LabelRelogio name={this.state.name} />
-        </div>
+          <div className = "counterBody">
+            <Contador horas={this.state.horas} minutos={this.state.minutos} segundos={this.state.segundos} centesimos={this.state.centesimos} />
+          </div>
 
-        <div className = "button">
-          <Botao className= "buttonBlack" onClick={() => this.zerarCronometro()} label={"Zerar"} />
-          <Botao onClick={() => this.pararTempo()} label={this.state.nameStop} />
-          <Botao onClick={() => this.parcial()} label={"Parcial"} />
-        </div>
+          <div className = "buttonTag">
+            <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />
+            <Botao onClick={() => this.pararTempo()} label={this.state.nameStop} />
+            <Botao onClick={() => this.parcial()} label={"Parcial"} />
+          </div>
 
-        <div>
-          <LabelRelogio name={this.state.parcial} />
+          <div>
+            <LabelRelogio name={this.state.parcial}  />
+          </div>
         </div>
+          <div className = "relogio">
+          Aqui parte do relogio do render
+          </div>
+
+          <div className = "temporizador">
+            <Temporizador/>
+          </div>
 
       </div>
     );

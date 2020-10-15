@@ -101,7 +101,11 @@ React.useEffect(() => {
   
 
     return (
-      <div className= "main">
+      <div className= "mainTemporizador">
+        <div>
+          <LabelRelogio name={name} />
+        </div>
+
         <div className="optionsWrapper">
         <button onClick={()=>{
           if(horas<23)
@@ -133,7 +137,7 @@ React.useEffect(() => {
       }>+</button>
       </div>
 
-        <div className = "counterBody">
+        <div className = "timerBody">
           <Contador horas={horas} minutos={minutos} segundos={segundos} centesimos={centesimos} />
         </div>
         <div className="optionsWrapper">
@@ -167,10 +171,7 @@ React.useEffect(() => {
         }>-</button>
         </div>
 
-        <div>
-          <LabelRelogio name={name} />
-        </div>
-
+        
         <div className = "button">
           <Botao onClick={() => zerarCronometro()} label={"Zerar"} />
           <Botao onClick={() => pararTempo()} label={nameStop} />
