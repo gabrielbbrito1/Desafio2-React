@@ -34,6 +34,18 @@
     font-size: 2vw;
     
 }
+.optionsWrapper{
+    display:flex;
+    width: 200px;
+    justify-content: space-between;
+}
+.parcialWrapper{
+    display: flex;
+    flex-flow: column;
+}
+.parcial{
+    margin:4px 0;
+}
  /*.buttonBlack{
     background-color: #C6CCD2;
      border-color: #AAB3BB;

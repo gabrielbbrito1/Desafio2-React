@@ -6,35 +6,28 @@ import './App.css';
 
 const Temporizador = () => {
   const [centesimos, setCentesimos] = React.useState(0);
-  const [temporizador, setTemporizador] = React.useState("");
   const [horas, setHoras] = React.useState(0);
   const [segundos, setSegundos] = React.useState(0);
   const [minutos, setMinutos] = React.useState(0);
-  const [parcial, setParcial] = React.useState("");
-  const [list, setList] = React.useState(["0","0","0","0"]);
-  const [stop, setStop] = React.useState(false);
-  const [nameStop, setNameStop]= React.useState("Stop");
-  const [name, setName]= React.useState( "Cronômetro"); 
+  const [parcial, setParcial] = React.useState([""]);
+  const [stop, setStop] = React.useState(true);
+  const [nameStop, setNameStop]= React.useState("Start");
+  const name= "Temporizador"; 
 
    const zerarCronometro= () =>{
      setCentesimos(-1);
       setHoras(0);
       setSegundos(0);
       setMinutos(0);
-      setParcial("");
+      setParcial([""]);
    }
    
-  /* relogio(){
-    //yarn add moment-timezone
-            var moment = require('moment-timezone')
-            let localTime = moment( ).tz("Brazil/Brasilia").format('HH:mm:ss').toString()
-            setState({relogio: localTime}) 
-    }
-    */
    
   const gerarParcial = ()=>{
     let p = horas+ ":"+ minutos+ ":"+ segundos + "." + centesimos + "\n\n"
-    setParcial (parcial + p)
+    const parser = parcial;
+    parser.push(p)
+    setParcial (parser)
   }
   
   const pararTempo = ()=>{
@@ -45,42 +38,43 @@ const Temporizador = () => {
       setNameStop("Start")    
   }
   
-  const incrementarCentesimo = ()=>{
+  const decrementarCentesimo = ()=>{
     if (stop === false){
-        if (centesimos > 99){
-            setCentesimos(0);
-            incrementarSegundo();
-          }else
-          setCentesimos(centesimos +1)
+        if (centesimos <= 0 && (segundos > 0 || minutos > 0 || horas > 0) ){
+            setCentesimos(99);
+            decrementarSegundo();
+          }else if(centesimos > 0)
+          setCentesimos(centesimos -1)
      }  
   }
 
-  const incrementarSegundo = ()=>{
-    if (segundos > 59){
-            setSegundos(0);
-            incrementarMinuto();
+  const decrementarSegundo = ()=>{
+    if (segundos <= 0 && (minutos > 0 || horas > 0)){
+            setSegundos(59);
+            decrementarMinuto();
           }else
-          setSegundos(segundos +1);  
+          setSegundos(segundos -1);  
     }
   
-  const incrementarMinuto = ()=>{
-      if (minutos > 59){
-        setMinutos(0);
-        incrementarHoras();
+  const decrementarMinuto = ()=>{
+      if (minutos <= 0 && horas > 0){
+        setMinutos(59);
+        decrementarHoras();
       } else
-      setMinutos(minutos +1);
+      setMinutos(minutos -1);
     
   };
   
-  const incrementarHoras = ()=> {
-    setHoras(horas +1);
-  };
+  const decrementarHoras = ()=> {
+    if (horas > 0)
+      setHoras(horas -1)
+    };
 
   
 
 React.useEffect(() => {
     const timer = setTimeout(() => {
-        incrementarCentesimo();
+        decrementarCentesimo();
       }, 10);
       return () => {
         clearTimeout(timer);
@@ -108,10 +102,69 @@ React.useEffect(() => {
 
     return (
       <div className= "main">
-          <input value={temporizador} onChange={(event)=> setTemporizador(event.target.value)}/> 
+        <div className="optionsWrapper">
+        <button onClick={()=>{
+          if(horas<23)
+          setHoras(horas +1)
+          else 
+          setHoras(0)
+        }
+      }>+</button>
+        <button onClick={()=> {
+          if(minutos<59)
+          setMinutos(minutos +1)
+          else 
+          setMinutos(0)
+        }
+      }>+</button>
+        <button onClick={()=> {
+          if(segundos<59)
+          setSegundos(segundos +1)
+          else 
+          setSegundos(0)
+        }
+      }>+</button>
+        <button onClick={()=> {
+          if(centesimos<99)
+          setCentesimos(centesimos +1)
+          else 
+          setCentesimos(0)
+        }
+      }>+</button>
+      </div>
 
         <div className = "counterBody">
           <Contador horas={horas} minutos={minutos} segundos={segundos} centesimos={centesimos} />
+        </div>
+        <div className="optionsWrapper">
+        <button onClick={()=> {
+                if(horas>0 )
+                setHoras(horas -1)
+                else
+                setHoras(23) 
+              }
+        }>-</button>
+        <button onClick={()=> {
+                if(minutos>0)
+                setMinutos(minutos -1)
+                else 
+                setMinutos(59)
+              }
+        }>-</button>
+        <button onClick={()=> {
+                if(segundos>0)
+                setSegundos(segundos -1)
+                else 
+                setSegundos(59)
+              }
+        }>-</button>
+        <button onClick={()=> {
+                if(centesimos>0)
+                setCentesimos(centesimos -1)
+                else 
+                setCentesimos(99)
+              }
+        }>-</button>
         </div>
 
         <div>
@@ -124,8 +177,8 @@ React.useEffect(() => {
           <Botao onClick={() => gerarParcial()} label={"Parcial"} />
         </div>
 
-        <div>
-          <LabelRelogio name={parcial} />
+        <div className="parcialWrapper">
+        {parcial.map((n, index) => <h1 className="parcial" key={index}> {n} </h1>)}
         </div>
 
       </div>
