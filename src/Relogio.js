@@ -1,40 +1,47 @@
-import React, { Component } from 'react';
+import ReactDOM from 'react';
+import React from 'react';
 import Contador from './Contador'
 import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
 import './App.css';
 
 
-const options = {
-	timeZone: 'America/Sao_Paulo',
-	hour: 'numeric',
-	minute: 'numeric'
-};
-const date = new Intl.DateTimeFormat([], options);
-console.log(date.format(new Date()));
+class Relogio extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
 
-<html>
-	<body>
-		<div id="data-hora"></div>
-		<script>
-			const zeroFill = n => {
-				return ('0' + n).slice(-2);
-			}
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
 
-			const interval = setInterval(() => {
-				// Pega o horário atual
-				const now = new Date();
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
 
-				// Formata a data conforme dd/mm/aaaa hh:ii:ss
-				const dataHora = zeroFill(now.getUTCDate()) + '/' + zeroFill((now.getMonth() + 1)) + '/' + now.getFullYear() + ' ' + zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes()) + ':' + zeroFill(now.getSeconds());
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
 
-				// Exibe na tela usando a div#data-hora
-				document.getElementById('data-hora').innerHTML = dataHora;
-			}, 1000);
-		</script>
-	</body>
-</html>
+  render() {
+    return (
+      <div>
+        <h1>{this.state.date.toLocaleTimeString()}</h1>
+      </div>
+    );
+    ReactDOM.render(
+      <Relogio />,
+      document.getElementById('root')
+    );
+  }
+}
 
 
-  
+
 export default Relogio;
