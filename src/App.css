@@ -1,29 +1,29 @@
 .main{
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
-    background-color: rgb(220,228,230) 
+    flex-direction: row;
+    background-color: rgb(220,228,230) ;
 }
 .contadorFlex{
     display: flex;
     flex-direction: row;
     font-family:Helvetica, sans-serif;
     background-color: rgb(221, 221, 221);
-    width: 30vw;
-    height: 18vh;
+    width: 15vw;
+    height: 9vh;
     justify-content: center;
     align-items: center;
     border-radius: 200px;
 }
 .contador{
     margin-right: 10px;
-    font-size: 5vw;
+    font-size: 3vw;
 }
 .counterBody{
-    width: 40vw;
-    height: 25vh;
+    width: 20vw;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,15 +51,15 @@
     display: inline-block;
     font-size: 20px;
     cursor: pointer;
-    height: 90px;
-    width: 90px;
+    height: 70px;
+    width: 70px;
     padding: 1px;
     border-radius: 50%;
 }
  .roundButton:active {
-    background-color: #00ff0d;
+    background-color: #d10707;
     border-color: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     outline: none;
  }
 
@@ -74,45 +74,73 @@
 .labelName{
     font-size: 2vw;
 }
+.cronometro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nomeRelogio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonTag{
+    display: flex;
+    justify-content: center;
+}
 
-@media (max-width: 600px){
+@media (max-width: 335px){
+    .buttonTag{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 25vw;
+    }
     .roundButton{
-        width: 13vh;
-        height: 13vh;
+        width: 3vh;
+        height: 3vh;
         font-size: 13px;
         text-align: center;
         justify-content: center;
         padding: 1px;
     }
         .counterBody{
-            width: 40vw;
-            height: 20vh;
+            width: 25vw;
+            height: 12vh;
+            margin: 5px;
         }
         .contadorFlex{
-            width: 30vw;
-            height: 15vh;
+            width: 22vw;
+            height: 10vh;
         }
         .contador{
             margin-right: 10px;
-            font-size: 5vw;
+            font-size: 4vw;
         }
         .labelName{
-            font-size: 13px;
+            font-size: 16px;
         }
     }
+    .cronometro{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
 @media(max-height: 400px){
     .roundButton{
         font-size: 8px;
-        width: 13vh;
-        height: 13vh;
+        width: 6vh;
+        height: 6vh;
     }
     .counterBody{
-        width: 40vw;
-        height: 20vh;
+        width: 50vw;
+        height: 25vh;
     }
     .contadorFlex{
-        width: 30vw;
-        height: 15vh;
+        width: 40vw;
+        height: 20vh;
     }
     .contador{
         margin-right: 10px;
@@ -120,5 +148,12 @@
     }
     .labelName{
         font-size: 13px;
+    }
+}
+@media(max-width: 775px){
+    .roundButton{
+        font-size: 6px;
+        width: 5vh;
+        height: 5vh;
     }
 }
