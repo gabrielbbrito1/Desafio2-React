@@ -14,6 +14,15 @@
     flex-direction: column;
     background-color: rgb(220,228,230) ;
 }
+
+.cronometro{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(220,228,230) ;
+}
 .contadorFlex{
     display: flex;
     flex-direction: row;
@@ -27,7 +36,7 @@
 }
 .contador{
     margin-right: 10px;
-    font-size: 3vw;
+    font-size: 2vw;
 }
 .counterBody{
     width: 20vw;
@@ -53,14 +62,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    font-size: 1vw;
     
 }
 .optionsWrapper{
     display:flex;
-    width: 200px;
-    justify-content: space-between;
-    margin: 12px 0;
+    width: 150px;
+    justify-content: center;
+    margin: 10px 0;
 }
 .parcialWrapper{
     display: flex;
@@ -79,12 +88,13 @@
     text-align: center;
     justify-content: center;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     padding: 1px;
     border-radius: 50%;
+    align-items: center;
 }
  .roundButton:active {
     background-color: #d10707;
@@ -107,7 +117,6 @@
 .cronometro{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 .nomeRelogio{
     display: flex;
@@ -117,6 +126,12 @@
 .buttonTag{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.button{
+    display: flex;
+    flex-direction: row;
 }
 
 @media (max-width: 335px){
@@ -130,7 +145,7 @@
     .roundButton{
         width: 3vh;
         height: 3vh;
-        font-size: 13px;
+        font-size: 10px;
         text-align: center;
         justify-content: center;
         padding: 1px;
@@ -152,33 +167,62 @@
         .labelName{
             font-size: 16px;
         }
-    }
     .cronometro{
         display: flex;
         justify-content: center;
         align-items: center;
     }
+    .optionsWrapper{
+        display:flex;
+        width: 150px;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .parcialWrapper{
+        display: flex;
+        flex-flow: column;
+        flex-direction: column;
+    }
+    .mainTemporizador{
+        padding: 1px;
+        margin: 1px;
+    }
+}
+.relogio{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
     
 @media(max-height: 400px){
     .roundButton{
         font-size: 8px;
-        width: 6vh;
-        height: 6vh;
+        width: 8vh;
+        height: 8vh;
     }
     .counterBody{
-        width: 50vw;
-        height: 25vh;
+        width: 25vw;
+        height: 12vh;
+        margin: 5px;
     }
+    
     .contadorFlex{
-        width: 40vw;
-        height: 20vh;
+        width: 22vw;
+        height: 10vh;
     }
     .contador{
         margin-right: 10px;
-        font-size: 3vw;
+        font-size: 4vw;
     }
     .labelName{
         font-size: 13px;
+    }
+    .buttonTag{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 @media(max-width: 775px){
