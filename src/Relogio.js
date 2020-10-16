@@ -1,8 +1,9 @@
 import ReactDOM from 'react';
-import React from 'react';
+import React, { Component }  from 'react';
 import Contador from './Contador'
 import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
+import Moment from 'moment-timezone';
 import './App.css';
 
 
@@ -30,7 +31,7 @@ class Relogio extends React.Component {
     });
   }
 
-  render() {
+    render() {
     return (
       <div className= "mainRelogio" >
         <div className = "relogio">
@@ -42,12 +43,13 @@ class Relogio extends React.Component {
         <div className = "counterBody">
             <div className = "contadorFlex">
         <LabelRelogio name={this.state.date.toLocaleTimeString()} />
+        <select name={moment.tz.zonesForCountry()} />
         </div>
         </div>
 
         <div className = "buttonTag">
-            <Botao onClick={() => this.zerarCronometro()} label={"Zerar"} />  
-            <Botao onClick={() => this.parcial()} label={"Parcial"} />
+           <Botao />
+
           </div>
 
       </div>

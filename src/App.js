@@ -4,6 +4,7 @@ import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
 import './App.css';
 import Temporizador from './Temporizador';
+import WorldClock from './WorldClock'
 import Relogio from './Relogio';
 
 class App extends React.Component {
@@ -139,8 +140,7 @@ class App extends React.Component {
           </div>
         </div>
           <div className = "relogio">
-          Aqui parte do relogio do render
-          <Relogio/>
+          <Relogio />
           </div>
 
           <div className = "temporizador">
