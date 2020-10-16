@@ -3,7 +3,8 @@ import React, { Component }  from 'react';
 import Contador from './Contador'
 import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
-import Moment from 'moment-timezone';
+import moment from 'moment-timezone';
+
 import './App.css';
 
 
@@ -11,6 +12,13 @@ class Relogio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {date: new Date()};
+  }
+
+  chamafuso(){
+        let e = prompt("Adicione o fuso (Brazil/Brasilia):")
+        var moment = require('moment-timezone')
+       // let localTime = moment( ).tz(e).format('HH🇲🇲ss').toString()
+       // this.setState({relogio: localTime})
   }
 
   
@@ -43,14 +51,18 @@ class Relogio extends React.Component {
         <div className = "counterBody">
             <div className = "contadorFlex">
         <LabelRelogio name={this.state.date.toLocaleTimeString()} />
-        <select name={moment.tz.zonesForCountry()} />
+       
         </div>
         </div>
 
         <div className = "buttonTag">
-           <Botao />
+         <Botao onClick={() => this.chamafuso()} label={"Add"} />
+        </div>
 
-          </div>
+        <div>
+         
+        </div>
+
 
       </div>
     );

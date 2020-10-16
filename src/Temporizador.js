@@ -82,7 +82,11 @@ React.useEffect(() => {
     }, [centesimos, stop]);
 
     
-  
+    React.useEffect(() => {
+      if(horas === 0 && minutos === 0 && segundos === 0 && centesimos === 0 && stop == false){
+          alert("O tempo acabou!");
+      };
+    }, [centesimos]);
   
   
  /* adicionaZero () {
