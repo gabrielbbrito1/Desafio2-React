@@ -108,7 +108,6 @@
     border-radius: 50%;
     align-items: center;
 }
-
  .roundButton:active {
     background-color: #d10707;
     border-color: none;
@@ -195,9 +194,10 @@
     }
     .optionsWrapper{
         display:flex;
-        width: 150px;
+        width: 160px;
         justify-content: center;
         margin-bottom: 10px;
+        
     }
     .parcialWrapper{
         display: flex;
