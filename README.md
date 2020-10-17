@@ -1,3 +1,26 @@
+Desafio 2 - Computação para dispositivos móveis.
+
+
+
+|--------------------------------------|
+|        Grupo         |   Matrícula   |
+|--------------------------------------|       
+|Gabriel Bastos Brito  |  031171042    |
+|--------------------------------------|
+|Dener Felipe          |  029181006    |
+|--------------------------------------|
+|Jeferson Lucas Tavares|  029181006    |
+|--------------------------------------|
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

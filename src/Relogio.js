@@ -2,11 +2,12 @@ import ReactDOM from 'react';
 import React, { Component }  from 'react';
 import Contador from './Contador'
 import Botao from './Botao'
-import LabelRelogio from './LabelRelogio'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'react';
 import moment from 'moment-timezone';
-import LabelLocal from './LabelLocal'
+import LabelLocal from './LabelLocal';
+import LabelRelogio from './LabelRelogio';
+import './Relogio.css';
 
-import './App.css';
 
 var e = 'Brazil/Salvador'
 class Relogio extends React.Component {
@@ -59,7 +60,7 @@ class Relogio extends React.Component {
       <div className= "mainRelogio" >
         <div className = "relogio">
           <div className = "nomeRelogio">  
-             <LabelRelogio name="Relógio" />
+             <LabelLocal name="Relógio" />
           </div>
           </div>
           <div>
@@ -73,8 +74,8 @@ class Relogio extends React.Component {
         </div>
         </div>
 
-        <div className = "buttonTag">
-         <Botao onClick={() => this.chamafuso()} label={"Add"} />
+        <div className = "button">
+         <Botao onClick={() => this.chamafuso()} label={"+"} />
         </div>
 
         <div>
