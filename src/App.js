@@ -3,8 +3,11 @@ import Contador from './Contador'
 import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
 import './App.css';
-import Temporizador from './Temporizador';
+import Temporizador from './Temporizador'
+import Relogio from './Relogio';
+import LabelLocal from './LabelLocal'
 
+let loop = 0;
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -25,19 +28,14 @@ class App extends React.Component {
       this.state.segundos = 0
       this.state.minutos = 0
       this.state.parcial = ""
+      loop = 0
    }
-  
-  /* relogio(){
-    //yarn add moment-timezone
-            var moment = require('moment-timezone')
-            let localTime = moment( ).tz("Brazil/Brasilia").format('HH:mm:ss').toString()
-            this.setState({relogio: localTime}) 
-    }
-    */
    
   parcial(){
-    let p = this.state.horas+ ":"+ this.state.minutos+ ":"+ this.state.segundos + "." + this.state.centesimos + "\n\n"
+    loop = loop + 1
+    let p = loop + "ª parcial: " + this.state.horas+ ":"+ this.state.minutos+ ":"+ this.state.segundos + "." + this.state.centesimos + "\n\n"
     this.state.parcial = this.state.parcial + p;
+    alert(this.state.parcial)
   }
   
   pararTempo(){
@@ -114,11 +112,10 @@ class App extends React.Component {
   }
   
   render(){
-    console.log(this.listTime)
 
     return (
       <div className= "main">
-        <div className = "Cronometro">
+        <div className = "cronometro">
           <div className = "nomeRelogio">
             <LabelRelogio name={this.state.name} />
           </div>
@@ -134,11 +131,10 @@ class App extends React.Component {
           </div>
 
           <div>
-            <LabelRelogio name={this.state.parcial}  />
           </div>
         </div>
           <div className = "relogio">
-          Aqui parte do relogio do render
+          <Relogio/>
           </div>
 
           <div className = "temporizador">

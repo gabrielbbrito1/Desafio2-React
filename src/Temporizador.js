@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Contador from './Contador'
 import Botao from './Botao'
 import LabelRelogio from './LabelRelogio'
@@ -28,6 +28,7 @@ const Temporizador = () => {
     const parser = parcial;
     parser.push(p)
     setParcial (parser)
+    alert(parcial)
   }
   
   const pararTempo = ()=>{
@@ -80,27 +81,12 @@ React.useEffect(() => {
         clearTimeout(timer);
       };
     }, [centesimos, stop]);
-
-    
-  
-  
-  
- /* adicionaZero () {
-    for(){
-    if(segundos < 10) {
-      for(){
-
-      }
-        
-    } else {
-        
-    }
-}
-}
-*/
-  
-
-    return (
+    React.useEffect(() => {
+      if(horas === 0 && minutos === 0 && segundos === 0 && centesimos === 0 && stop == false){
+          alert("O tempo acabou!");
+      };
+    }, [centesimos]);
+       return (
       <div className= "mainTemporizador">
         <div>
           <LabelRelogio name={name} />
@@ -179,7 +165,6 @@ React.useEffect(() => {
         </div>
 
         <div className="parcialWrapper">
-        {parcial.map((n, index) => <h1 className="parcial" key={index}> {n} </h1>)}
         </div>
 
       </div>

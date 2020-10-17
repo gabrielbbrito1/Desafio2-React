@@ -21,8 +21,17 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 15px;
+}
+.mainRelogio{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
     background-color: rgb(220,228,230) ;
 }
+
 .contadorFlex{
     display: flex;
     flex-direction: row;
@@ -64,6 +73,9 @@
     align-items: center;
     font-size: 1vw;
     
+}
+.labelLocal{
+    font-size: 1vw;
 }
 .optionsWrapper{
     display:flex;
@@ -117,6 +129,14 @@
 .cronometro{
     display: flex;
     justify-content: center;
+}
+.relogio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    margin-bottom: 0px;
+    padding: 0px;
 }
 .nomeRelogio{
     display: flex;
